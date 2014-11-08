@@ -138,6 +138,19 @@ public class Search {
 //			UserID user = it.next();
 //			boolean add = list.add(user);
 //		}
+=======
+		LinkedList<UserID> list = new LinkedList<UserID>();
+		Collection<UserID> users = UserManager.getRegistredUsers().values();
+		assert(!users.isEmpty());
+		
+		users.remove(searchingFor);
+		users = getListOfUsersMatchCriteria(users);
+		Iterator<UserID> it = users.iterator();
+		
+		while(it.hasNext()) {
+			UserID user = it.next();
+			boolean add = list.add(user);
+		}
 		list.sort(new SortUsers());
 		return list;
 	}

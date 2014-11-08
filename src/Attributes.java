@@ -81,6 +81,18 @@ public class Attributes {
 		
 	}
 	
+	final static int NUM_ATTRIBUTES = 10;
+	private Gender gender;
+	private int age;
+	private Sexuality sexuality;
+	private double height;
+	private int weight;
+	private Ethnicity ethnicity;
+	private EyeColor eye_color;
+	private HairColor hair_color;
+	private Education education;
+	private Zodiac zodiac;
+	
 	public enum AttributeEnum {
 		GENDER, SEXUALITY, ETHNICITY, EYE_COLOR, HAIR_COLOR, EDUCATION, ZODIAC;
 	}
