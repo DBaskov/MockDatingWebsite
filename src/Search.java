@@ -126,18 +126,18 @@ public class Search {
 	
 	protected LinkedList<UserID> findUsersBasedOnSearchCriteria() {
 		
-		LinkedList<UserID> list = new LinkedList<UserID>();
-		Collection<UserID> users = UserManager.getRegistredUsers().values();
-		assert(!users.isEmpty());
+		LinkedList<UserID> list = new LinkedList<UserID>(UserManager.getRegistredUsers().values());
+		//Collection<UserID> users = UserManager.getRegistredUsers().values();
+		assert(!list.isEmpty());
 		
-		users.remove(searchingFor);
-		users = getListOfUsersMatchCriteria(users);
-		Iterator<UserID> it = users.iterator();
-		
-		while(it.hasNext()) {
-			UserID user = it.next();
-			boolean add = list.add(user);
-		}
+		list.remove(searchingFor);
+		list = (LinkedList<UserID>)getListOfUsersMatchCriteria(list);
+//		Iterator<UserID> it = users.iterator();
+//		
+//		while(it.hasNext()) {
+//			UserID user = it.next();
+//			boolean add = list.add(user);
+//		}
 		list.sort(new SortUsers());
 		return list;
 	}
