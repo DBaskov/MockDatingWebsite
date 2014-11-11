@@ -3,7 +3,7 @@ import java.util.*;
 public class Driver {
 	
 	public enum UserOptions {
-		SIGN_IN(1), CREATE_NEW_ACCOUNT(2), VIEW_LIST_OF_MEMBERS(3), QUIT(4);
+		SIGN_IN(1), CREATE_NEW_ACCOUNT(2), VIEW_ALL_MEMBERS(3), QUIT(4);
 		
 		private int value;
 		private UserOptions(int value) {
@@ -15,7 +15,7 @@ public class Driver {
 			switch(val) {
 			case 1: return SIGN_IN;
 			case 2: return CREATE_NEW_ACCOUNT;
-			case 3: return VIEW_LIST_OF_MEMBERS;
+			case 3: return VIEW_ALL_MEMBERS;
 			case 4: return QUIT;
 			default: return null;
 			}
@@ -71,7 +71,7 @@ public class Driver {
 		  switch(selected) {
 		  	case SIGN_IN : user = UserManager.signIn(scan); break;
 		  	case CREATE_NEW_ACCOUNT : user = UserManager.createNewAccount(scan); break;
-		  	case VIEW_LIST_OF_MEMBERS : UserManager.PrintUserInfoList(); break;
+		  	case VIEW_ALL_MEMBERS : UserManager.PrintUserInfoList(); break;
 		  	case QUIT: return null;
 		  	default: System.out.println("error in UserOptions1 method");
 		  }
