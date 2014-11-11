@@ -8,6 +8,51 @@ public class Attributes {
 	final static int NUM_INT_FIELDS = 2;
 	final static int NUM_DOUBLE_FIELDS = 1;
 	
+	final static int NUM_ATTRIBUTES = 10;
+	private Gender gender;
+	private int age;
+	private Sexuality sexuality;
+	private double height;
+	private int weight;
+	private Ethnicity ethnicity;
+	private EyeColor eye_color;
+	private HairColor hair_color;
+	private Education education;
+	private Zodiac zodiac;
+	
+	public Attributes(Gender gender, Sexuality sexuality, EyeColor eyeColor, 
+			HairColor hairColor, Ethnicity ethnicity, Education education, Zodiac zodiac, int age, int weight, double height) {
+		
+		this.gender = gender;
+		this.sexuality = sexuality;
+		this.ethnicity = ethnicity;
+		this.eye_color = eyeColor;
+		this.hair_color = hairColor;
+		this.education = education;
+		this.zodiac = zodiac;
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+	}
+	
+	public Attributes(String[] strFields, int age, int weight, double height) {
+		
+		assert(strFields.length == NUM_ENUM_FIELDS);
+		
+		int i = 0;
+		gender = Gender.valueOf(strFields[i]);
+		sexuality = Sexuality.valueOf(strFields[++i]);
+		ethnicity = Ethnicity.valueOf(strFields[++i]);
+		eye_color = EyeColor.valueOf(strFields[++i]);
+		hair_color = HairColor.valueOf(strFields[++i]);
+		education = Education.valueOf(strFields[++i]);
+		zodiac = Zodiac.valueOf(strFields[++i]);
+		
+		this.age = age;
+		this.height = height;
+		this.weight = weight;
+	}
+	
 	public enum Gender {
 		FEMALE(1), MALE(2);
 		private int value;
@@ -301,40 +346,6 @@ public class Attributes {
 		assert(enumAttrA.getClass().equals(enumAttrB.getClass())); //arguments must have same class
 		return enumAttrA.equals(enumAttrB) ? 1 : -1;
 	}
-	
-	public Attributes(Gender gender, Sexuality sexuality, EyeColor eyeColor, 
-			HairColor hairColor, Ethnicity ethnicity, Education education, Zodiac zodiac, int age, int weight, double height) {
-		
-		this.gender = gender;
-		this.sexuality = sexuality;
-		this.ethnicity = ethnicity;
-		this.eye_color = eyeColor;
-		this.hair_color = hairColor;
-		this.education = education;
-		this.zodiac = zodiac;
-		this.age = age;
-		this.height = height;
-		this.weight = weight;
-	}
-	
-	public Attributes(String[] strFields, int age, int weight, double height) {
-		
-		assert(strFields.length == NUM_ENUM_FIELDS);
-		
-		int i = 0;
-		gender = Gender.valueOf(strFields[i]);
-		sexuality = Sexuality.valueOf(strFields[++i]);
-		ethnicity = Ethnicity.valueOf(strFields[++i]);
-		eye_color = EyeColor.valueOf(strFields[++i]);
-		hair_color = HairColor.valueOf(strFields[++i]);
-		education = Education.valueOf(strFields[++i]);
-		zodiac = Zodiac.valueOf(strFields[++i]);
-		
-		this.age = age;
-		this.height = height;
-		this.weight = weight;
-	}
-	
 	
 	
 	public Gender getGender() {

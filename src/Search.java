@@ -130,6 +130,12 @@ public class Search {
 		assert(!list.isEmpty());
 		list.remove(searchingFor);
 		list = (LinkedList<UserID>)getListOfUsersMatchCriteria(list);
+
+		//Collection<UserID> users = UserManager.getRegistredUsers().values();
+		assert(!list.isEmpty());
+		
+		list.remove(searchingFor);
+		list = (LinkedList<UserID>)getListOfUsersMatchCriteria(list);
 		
 		list.sort(new SortUsers());
 		return list;
